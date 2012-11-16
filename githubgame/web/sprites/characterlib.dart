@@ -10,6 +10,8 @@ abstract class GameSprite{
   num height;
   num posx;
   num posy;
+  num directionx;
+  num directiony;
   String color;
   String _type;
   
@@ -24,12 +26,14 @@ abstract class GameSprite{
     this.width = width;
     this.height = height;
     this.color = color;
-    this._type = "np";    
+    this._type = "np";
+    this.directionx = 1;
+    this.directiony = 1;
   }      
 
   void move(num x, num y){
-    this.posx +=x;
-    this.posy +=y;
+    this.posx +=(x*directionx);
+    this.posy +=(y*directiony);
   }
   
   num get startx => this._startx;
