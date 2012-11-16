@@ -39,6 +39,8 @@ abstract class GameSprite{
   num get startx => this._startx;
   num get starty => this._starty;
   
+  num get centery;
+  
   set type (String type) {
     _type = type;
   }
@@ -48,6 +50,8 @@ abstract class GameSprite{
     return false;
   }    
   
-  void draw();    
+  void draw();
+  
+  void usermove(num x, num y);
        
 }

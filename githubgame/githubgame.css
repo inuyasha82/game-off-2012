@@ -13,8 +13,10 @@ p {
 }
 
 #container {
-  width: 100%;
+  width: 60%;
   height: 400px;
+  margin-left: 20%;
+  margin-right: 20%;
   position: relative;
   border: 1px solid #ccc;
   background-color: #fff;

@@ -6,13 +6,15 @@ import 'dart:math';
 var context;
 Set<GameSprite> sprites;
 int counter= 0;
-
+var randomnumbergenerator;
+Player player; 
 void main() { 
   var maincharacter = new Player(10,10, 70, 70, "red");
   var secondCharacter = new Player(400,250, 50,50, "yellow");
+  player = maincharacter;
   
   sprites = new Set();
-  
+  randomnumbergenerator = new Random();
   window.on.keyDown.add(myKeyDownEvent);
   CanvasElement element = query("canvas");  
   context = element.context2d;
@@ -48,8 +50,9 @@ void animate(num time){
 
 void enemyCreator(num time) {
 
-  if((counter%100==0)) { 
-    Player player = new Player(400, 100, 20,20, "blue");
+  if((counter%100==0)) {
+    num ypos = randomnumbergenerator.nextInt(300);
+    Player player = new Player(400, ypos, 20,20, "blue");
     player.context = context;
     player.directionx = -1;
     sprites.add(player);    
@@ -75,11 +78,11 @@ void myKeyDownEvent(Event event){
     switch(kevent.keyIdentifier){
       case "Up":
         query("#text").text = "Up Pressed";
-        sprites.forEach((s) => s.move(0,10));        
+        sprites.forEach((s) => s.usermove(0,10));        
         break;
       case "Down":
         query("#text").text = "Down Pressed";
-        sprites.forEach((s) => s.move(0,-10));
+        sprites.forEach((s) => s.usermove(0,-10));
         break;
       case "Left":
         break;
@@ -87,7 +90,7 @@ void myKeyDownEvent(Event event){
         break;
       case "U+0020":
         query("#text").text = "Space pressed";
-        Player player = new Player(0, 100, 20,20, "blue");
+        Player player = new Player(70, player.centery, 20,3, "green");
         player.context = context;
         sprites.add(player);
         break;
