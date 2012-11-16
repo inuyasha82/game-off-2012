@@ -1,0 +1,5 @@
+name:  githubgame
+description:  A sample application
+
+#dependencies:
+#  unittest: { sdk: unittest }
