@@ -1,13 +1,15 @@
 library characterlib;
 
 import 'dart:html';
-import 'constants.dart';
+import '../constants.dart';
 
-class GameSprite{
+abstract class GameSprite{
   num _startx;
   num _starty;
   num width;
   num height;
+  num posx;
+  num posy;
   String color;
   String _type;
   
@@ -17,18 +19,17 @@ class GameSprite{
   GameSprite(num x, num y, num width, num height, String color){
     this._startx = x;
     this._starty = y;
+    this.posx = x;
+    this.posy = y;
     this.width = width;
     this.height = height;
     this.color = color;
     this._type = "np";    
-  }
-  
-  
-  Rect get rect => new Rect(this._startx, this._starty, this.width, this.height);
+  }      
 
   void move(num x, num y){
-    this._startx +=x;
-    this._starty +=y;
+    this.posx +=x;
+    this.posy +=y;
   }
   
   num get startx => this._startx;
@@ -41,17 +42,8 @@ class GameSprite{
   bool isPlayer(){
     if(!(_type=='np')) return true;
     return false;
-  }
+  }    
   
-  void draw(){    
-    context.beginPath();
-    context.lineWidth = 2;
-    context.fillStyle = color;
-    context.strokeStyle = color; 
-    context.rect(_startx, _starty, width, height);
-    context.fill();  
-    context.closePath();  
-    context.stroke();
-  }
-   
+  void draw();    
+       
 }
