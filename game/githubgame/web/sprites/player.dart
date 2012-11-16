@@ -1,4 +1,4 @@
-library characterlib;
+library githubgame;
 
 import 'characterlib.dart';
 
