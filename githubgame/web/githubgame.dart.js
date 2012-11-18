@@ -2923,10 +2923,8 @@ $.animate = function(time) {
         t4 = ' Posx1: ' + $.S($.toString(t3)) + ' Length: ' + $.S($.get$length($.sprites)) + ' Energy: ' + $.S($.player.get$energy());
         $.query('#text').set$text(t4);
         t2.draw$0();
-      } else {
-        $.query('#text').set$text('Destroyed');
+      } else
         $.sprites.remove$1(t2);
-      }
     } else {
       t2.draw$0();
       t2 = ' Time: ' + $.S($.counter) + ' Length: ' + $.S($.get$length($.sprites)) + ' Energy: ' + $.S($.player.get$energy());
@@ -3597,10 +3595,8 @@ $.animate$bailout = function(state0, env0, env1, env2, env3) {
                       t3 = ' Posx1: ' + $.S($.toString(t2.get$posx())) + ' Length: ' + $.S($.get$length($.sprites)) + ' Energy: ' + $.S($.player.get$energy());
                       $.query('#text').set$text(t3);
                       t2.draw$0();
-                    } else {
-                      $.query('#text').set$text('Destroyed');
+                    } else
                       $.sprites.remove$1(t2);
-                    }
                 }
               else {
                 t2.draw$0();

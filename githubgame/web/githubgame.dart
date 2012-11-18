@@ -42,15 +42,14 @@ void animate(num time){
         sprites.remove(sprite);
       }
       if(!(sprite.posx<0)){ 
-        query('#text').text = " Posx1: ${sprite.posx.toString()} Length: ${sprites.length} Energy: ${player.energy}";        
+        query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";        
         sprite.draw();
-      } else {
-        query('#text').text = "Destroyed";
+      } else {        
         sprites.remove(sprite);
       }      
     } else {
       sprite.draw();
-      query('#text').text = " Time: $counter Length: ${sprites.length} Energy: ${player.energy}";
+      query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";
     }
   }
   window.requestAnimationFrame(animate);  
@@ -63,6 +62,9 @@ void enemyCreator(num time) {
     Player enemy = new Player(Constants.MAX_X, ypos, 20,20, "blue");
     enemy.context = context;
     enemy.directionx = -1;
+    ImageElement image = new ImageElement();
+    image.src = "web/sprites/enemy1.png";
+    enemy.playerimage = image;
     sprites.add(enemy);    
   }
   counter++;
