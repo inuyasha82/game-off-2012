@@ -8,6 +8,8 @@ Set<GameSprite> sprites;
 int counter= 0;
 var randomnumbergenerator;
 Player player; 
+
+
 void main() { 
   var maincharacter = new Player(10,10, 70, 70, "red");
   var secondCharacter = new Player(400,250, 50,50, "yellow");
@@ -23,7 +25,7 @@ void main() {
   maincharacter.type = 'player';
   sprites.add(maincharacter);
   sprites.add(secondCharacter);  
-  window.webkitRequestAnimationFrame(animate);   
+  window.requestAnimationFrame(animate);   
 }
 
 void animate(num time){
@@ -45,7 +47,7 @@ void animate(num time){
       query('#text').text = " Time: $counter Length: ${sprites.length}";
     }
   }
-  window.webkitRequestAnimationFrame(animate);  
+  window.requestAnimationFrame(animate);  
 }
 
 void enemyCreator(num time) {
