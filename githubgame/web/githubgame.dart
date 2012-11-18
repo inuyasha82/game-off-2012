@@ -1,18 +1,20 @@
-import 'dart:html'; 
+import 'dart:html';
 import 'sprites/characterlib.dart';
 import 'sprites/player.dart';
+import 'constants.dart';
 import 'dart:math';
 
 var context;
 Set<GameSprite> sprites;
 int counter= 0;
 var randomnumbergenerator;
-Player player; 
+Player player;
 
+var gameMatrix = new List(); 
 
 void main() { 
   var maincharacter = new Player(10,10, 70, 70, "red");
-  var secondCharacter = new Player(400,250, 50,50, "yellow");
+  var secondCharacter = new Player(Constants.MAX_X,250, 50,50, "yellow");
   player = maincharacter;
   
   sprites = new Set();
@@ -28,15 +30,19 @@ void main() {
   window.requestAnimationFrame(animate);   
 }
 
-void animate(num time){
+void animate(num time){  
   enemyCreator(time);
-  context.clearRect(0,0,400,400);  
+  //update_background();
+  context.clearRect(0,0,Constants.SCREEN_SIZE_X,Constants.SCREEN_SIZE_Y);  
   for(final sprite in sprites){
     if(!sprite.isPlayer()) {
       sprite.move(5, 0);
-      // sprite.isOutside(0);
+      if(player.checkCollison(sprite)){
+        player.energy--;
+        sprites.remove(sprite);
+      }
       if(!(sprite.posx<0)){ 
-        query('#text').text = " Posx: ${sprite.posx.toString()} Length: ${sprites.length}";
+        query('#text').text = " Posx1: ${sprite.posx.toString()} Length: ${sprites.length} Energy: ${player.energy}";        
         sprite.draw();
       } else {
         query('#text').text = "Destroyed";
@@ -44,7 +50,7 @@ void animate(num time){
       }      
     } else {
       sprite.draw();
-      query('#text').text = " Time: $counter Length: ${sprites.length}";
+      query('#text').text = " Time: $counter Length: ${sprites.length} Energy: ${player.energy}";
     }
   }
   window.requestAnimationFrame(animate);  
@@ -54,10 +60,10 @@ void enemyCreator(num time) {
 
   if((counter%100==0)) {
     num ypos = randomnumbergenerator.nextInt(300);
-    Player player = new Player(400, ypos, 20,20, "blue");
-    player.context = context;
-    player.directionx = -1;
-    sprites.add(player);    
+    Player enemy = new Player(Constants.MAX_X, ypos, 20,20, "blue");
+    enemy.context = context;
+    enemy.directionx = -1;
+    sprites.add(enemy);    
   }
   counter++;
 }
@@ -92,12 +98,11 @@ void myKeyDownEvent(Event event){
         break;
       case "U+0020":
         query("#text").text = "Space pressed";
-        Player player = new Player(70, player.centery, 20,3, "green");
+        Player player = new Player(81, player.centery, 20,Constants.SHOOT_SIZE, "green");
         player.context = context;
         sprites.add(player);
         break;
     }
   }
-  
-  
+
 }

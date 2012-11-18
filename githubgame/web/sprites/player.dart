@@ -1,6 +1,7 @@
 library characterlib;
 
 import 'characterlib.dart';
+import 'dart:html';
 
 class Player extends GameSprite {
   
@@ -27,6 +28,15 @@ class Player extends GameSprite {
     if(isPlayer()){
       this.move(x, y);
     }
+  }
+  
+  bool checkCollison(GameSprite sprite){
+    if(sprite.posx > posx && sprite.posx < posx + this.width) {
+      if(sprite.posy > posy && sprite.posy < posy + this.height){
+        return true;
+      }      
+    }
+    return false;
   }
     
 }
