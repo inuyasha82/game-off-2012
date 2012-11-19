@@ -12,7 +12,7 @@ As a github admin you must stop all pull requests from spaghetti coders!! :)
 
 ## Technical informations
 
-The game is mainly an attempt for me to learn and understnad Dart Programmin Language [www.dartlang.org](http://www.dartlang.org).
+The game is mainly an attempt for me to learn and understnad Dart Programming Language [www.dartlang.org](http://www.dartlang.org).
 
 Actually there isn't official support in any browser to that language, but since there is a dart2js converter, it should work pretty well in any browser (maybe it could be slower than usual), but if you want you can download [Dartium](http://www.dartlang.org/dartium/) a special build of chrome with dart support. 
 

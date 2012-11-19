@@ -41,7 +41,7 @@ void animate(num time){
         player.energy--;
         sprites.remove(sprite);
       }
-      if(!(sprite.posx<0)){ 
+      if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){ 
         query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";        
         sprite.draw();
       } else {        
@@ -93,10 +93,6 @@ void myKeyDownEvent(Event event){
       case "Down":
         query("#text").text = "Down Pressed";
         sprites.forEach((s) => s.usermove(0,-10));
-        break;
-      case "Left":
-        break;
-      case "Right":
         break;
       case "U+0020":
         query("#text").text = "Space pressed";
