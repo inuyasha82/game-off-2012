@@ -1,4 +1,4 @@
-library githubgame;
+library characterlib;
 
 import 'dart:html';
 import '../constants.dart';
