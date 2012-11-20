@@ -10,8 +10,6 @@ int counter= 0;
 var randomnumbergenerator;
 Player player;
 
-var gameMatrix = new List(); 
-
 void main() { 
   var maincharacter = new Player(10,10, 70, 70, "red");
   var secondCharacter = new Player(Constants.MAX_X,250, 50,50, "yellow");
@@ -20,13 +18,18 @@ void main() {
   sprites = new Set();
   randomnumbergenerator = new Random();
   window.on.keyDown.add(myKeyDownEvent);
+  
   CanvasElement element = query("canvas");  
   context = element.context2d;
+  
   maincharacter.context = context;
-  secondCharacter.context = context;
   maincharacter.type = 'player';
+  
+  secondCharacter.context = context;  
+
   sprites.add(maincharacter);
   sprites.add(secondCharacter);  
+  
   window.requestAnimationFrame(animate);   
 }
 
@@ -41,21 +44,20 @@ void animate(num time){
         sprites.remove(sprite);
       }
       if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){ 
-        query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";        
+               
         sprite.draw();
       } else {        
         sprites.remove(sprite);
       }      
     } else {
-      sprite.draw();
-      query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";
+      sprite.draw();      
     }
+    query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";
   }
   window.requestAnimationFrame(animate);  
 }
 
 void enemyCreator(num time) {
-
   if((counter%100==0)) {
     num ypos = randomnumbergenerator.nextInt(Constants.MAX_Y-Constants.ENEMY_SIZE_Y);
     Player enemy = new Player(Constants.MAX_X, ypos, Constants.ENEMY_SIZE_X,Constants.ENEMY_SIZE_Y, "blue");
@@ -69,37 +71,24 @@ void enemyCreator(num time) {
   counter++;
 }
 
-void reverseText(Event event) {
-  var text = query("#text").text;
-  var buffer = new StringBuffer();
-  for (int i = text.length - 1; i >= 0; i--) {    
-    buffer.add(text[i]);
-  }
-  query("#text").text = buffer.toString();
-  query("#container").clientWidth;
-  query("#container").clientHeight;
-}
-
 void myKeyDownEvent(Event event){
   if(event is KeyboardEvent){ 
     KeyboardEvent kevent = event as KeyboardEvent;    
     query("#text").text = kevent.keyIdentifier;
     switch(kevent.keyIdentifier){
-      case "Up":
-        query("#text").text = "Up Pressed";
-        sprites.forEach((s) => s.usermove(0,10));        
+      case "Up":        
+        player.usermove(0,10);        
         break;
-      case "Down":
-        query("#text").text = "Down Pressed";
-        sprites.forEach((s) => s.usermove(0,-10));
+      case "Down":        
+        player.usermove(0,-10);
         break;
-      case "U+0020":
-        query("#text").text = "Space pressed";
+      case "U+0020":        
         Player player = new Player(81, player.centery, 20,Constants.SHOOT_SIZE, "green");
         player.context = context;
         sprites.add(player);
         break;
     }
+    //query("#text").text = "${kevent.keyIdentifier} pressed";
   }
 
 }
