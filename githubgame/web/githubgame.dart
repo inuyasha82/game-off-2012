@@ -32,7 +32,6 @@ void main() {
 
 void animate(num time){  
   enemyCreator(time);
-  //update_background();
   context.clearRect(0,0,Constants.SCREEN_SIZE_X,Constants.SCREEN_SIZE_Y);  
   for(final sprite in sprites){
     if(!sprite.isPlayer()) {

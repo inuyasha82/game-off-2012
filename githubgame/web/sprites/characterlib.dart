@@ -10,8 +10,8 @@ abstract class GameSprite{
   num height;
   num posx;
   num posy;
-  num directionx;
-  num directiony;
+  int directionx;
+  int directiony;
   String color;
   String _type;
   
