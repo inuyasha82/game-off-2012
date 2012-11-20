@@ -38,13 +38,12 @@ void animate(num time){
   context.clearRect(0,0,Constants.SCREEN_SIZE_X,Constants.SCREEN_SIZE_Y);  
   for(final sprite in sprites){
     if(!sprite.isPlayer()) {
-      sprite.move(5, 0);
+      sprite.move(5, 0);      
       if(player.checkCollison(sprite)){
         player.energy--;  
         sprites.remove(sprite);
       }
-      if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){ 
-               
+      if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){                
         sprite.draw();
       } else {        
         sprites.remove(sprite);
@@ -58,13 +57,13 @@ void animate(num time){
 }
 
 void enemyCreator(num time) {
-  if((counter%100==0)) {
+  if((counter%100==0)) {   
     num ypos = randomnumbergenerator.nextInt(Constants.MAX_Y-Constants.ENEMY_SIZE_Y);
     Player enemy = new Player(Constants.MAX_X, ypos, Constants.ENEMY_SIZE_X,Constants.ENEMY_SIZE_Y, "blue");
-    enemy.context = context;
-    enemy.directionx = -1;
+      enemy.context = context;
+      enemy.directionx = -1;
     ImageElement image = new ImageElement();
-    image.src = "web/sprites/enemy1.png";
+      image.src = "web/sprites/enemy1.png";
     enemy.playerimage = image;
     sprites.add(enemy);    
   }
