@@ -1,6 +1,7 @@
 library characterlib;
 
 import 'characterlib.dart';
+import '../constants.dart';
 import 'dart:html';
 
 class Player extends GameSprite {
@@ -31,7 +32,9 @@ class Player extends GameSprite {
   
   void usermove(num x, num y){
     if(isPlayer()){
-      this.move(x, y);
+      if(posy + y + height< Constants.MAX_Y && posy + y > 0 ){
+        this.move(x, y);
+      }
     }
   }
   
