@@ -38,7 +38,7 @@ void animate(num time){
     if(!sprite.isPlayer()) {
       sprite.move(5, 0);
       if(player.checkCollison(sprite)){
-        player.energy--;
+        player.energy--;  
         sprites.remove(sprite);
       }
       if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){ 
@@ -58,8 +58,8 @@ void animate(num time){
 void enemyCreator(num time) {
 
   if((counter%100==0)) {
-    num ypos = randomnumbergenerator.nextInt(300);
-    Player enemy = new Player(Constants.MAX_X, ypos, 20,20, "blue");
+    num ypos = randomnumbergenerator.nextInt(Constants.MAX_Y-Constants.ENEMY_SIZE_Y);
+    Player enemy = new Player(Constants.MAX_X, ypos, Constants.ENEMY_SIZE_X,Constants.ENEMY_SIZE_Y, "blue");
     enemy.context = context;
     enemy.directionx = -1;
     ImageElement image = new ImageElement();

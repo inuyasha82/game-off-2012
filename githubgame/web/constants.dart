@@ -12,5 +12,7 @@ class Constants {
   static const NON_PLAYER='np';
   
   static const SHOOT_SIZE=3;
+  static const ENEMY_SIZE_X=20;
+  static const ENEMY_SIZE_Y=20;
      
 }
