@@ -39,7 +39,7 @@ class Player extends GameSprite {
   }
   
   void remove(){    
-    context.clearRect(posx, posy, width, height);        
+    context.clearRect(posx-1, posy-1, width+2, height+2);        
   }
   
   bool checkCollison(GameSprite sprite){
