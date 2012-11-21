@@ -44,7 +44,7 @@ class Player extends GameSprite {
   
   bool checkCollison(GameSprite sprite){
     if(sprite.posx > posx && sprite.posx < posx + this.width) {
-      if(sprite.posy > posy && sprite.posy < posy + this.height){
+      if(sprite.posy > posy && sprite.posy < posy+this.height/2 + this.height ){
         return true;
       }      
     }

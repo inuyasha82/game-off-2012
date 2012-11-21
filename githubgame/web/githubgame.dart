@@ -43,8 +43,9 @@ void animate(num time){
     if(!sprite.isPlayer()) {
       sprite.move(5, 0);      
       if(player.checkCollison(sprite)){
-        player.energy--;
+        player.energy--;        
         sprite.remove();
+        player.draw();
         sprites.remove(sprite);        
       }
       if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){        
