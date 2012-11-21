@@ -32,8 +32,10 @@ abstract class GameSprite{
   }      
 
   void move(num x, num y){
+    this.remove();
     this.posx +=(x*directionx);
     this.posy +=(y*directiony);
+    this.draw();
   }
   
   num get startx => this._startx;
@@ -51,6 +53,7 @@ abstract class GameSprite{
   }    
   
   void draw();
+  void remove();
   
   void usermove(num x, num y);
        

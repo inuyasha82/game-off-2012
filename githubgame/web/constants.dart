@@ -2,7 +2,7 @@ library characterlib;
 
 class Constants {
   
-  static const SCREEN_SIZE_X = 400;
+  static const SCREEN_SIZE_X = 500;
   static const SCREEN_SIZE_Y = 400;
   
   static const MAX_X = 400;

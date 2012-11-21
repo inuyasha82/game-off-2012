@@ -18,7 +18,7 @@ class Player extends GameSprite {
     context.lineWidth = 2;
     context.fillStyle = color;
     context.strokeStyle = color;
-    if(playerimage==null){
+    if(playerimage==null){      
       context.rect(posx, posy, width, height);
     } else {
       context.drawImage(playerimage, posx, posy, width, height);
@@ -36,6 +36,10 @@ class Player extends GameSprite {
         this.move(x, y);
       }
     }
+  }
+  
+  void remove(){    
+    context.clearRect(posx, posy, width, height);        
   }
   
   bool checkCollison(GameSprite sprite){

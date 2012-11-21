@@ -1,6 +1,7 @@
 import 'dart:html';
 import 'sprites/characterlib.dart';
 import 'sprites/player.dart';
+import 'sprites/gameobject.dart';
 import 'constants.dart';
 import 'dart:math';
 
@@ -9,6 +10,7 @@ Set<GameSprite> sprites;
 int counter= 0;
 var randomnumbergenerator;
 Player player;
+GameObject heart;
 
 void main() { 
   var maincharacter = new Player(10,10, 70, 70, "red");
@@ -24,33 +26,34 @@ void main() {
   
   maincharacter.context = context;
   maincharacter.type = 'player';
-  
+  heart = new GameObject(0,0,40,40);
+  heart.context = context;
   secondCharacter.context = context;  
 
   sprites.add(maincharacter);
   sprites.add(secondCharacter);  
-  
+  maincharacter.draw();  
   window.requestAnimationFrame(animate);   
 }
 
 void animate(num time){  
   enemyCreator(time);
-  context.clearRect(0,0,Constants.SCREEN_SIZE_X,Constants.SCREEN_SIZE_Y);  
+  //context.clearRect(0,0,Constants.SCREEN_SIZE_X,Constants.SCREEN_SIZE_Y);  
   for(final sprite in sprites){
     if(!sprite.isPlayer()) {
       sprite.move(5, 0);      
       if(player.checkCollison(sprite)){
-        player.energy--;  
-        sprites.remove(sprite);
+        player.energy--;
+        sprite.remove();
+        sprites.remove(sprite);        
       }
-      if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){                
-        sprite.draw();
-      } else {        
+      if(!(sprite.posx<0 || sprite.posx>Constants.MAX_X)){        
+        heart.draw();        
+      } else {
+        sprite.remove();
         sprites.remove(sprite);
       }      
-    } else {
-      sprite.draw();      
-    }
+    } 
     query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";
   }
   window.requestAnimationFrame(animate);  
@@ -87,7 +90,6 @@ void myKeyDownEvent(Event event){
         sprites.add(player);
         break;
     }
-    //query("#text").text = "${kevent.keyIdentifier} pressed";
   }
 
 }
