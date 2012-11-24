@@ -26,6 +26,10 @@ void main() {
   
   maincharacter.context = context;
   maincharacter.type = 'player';
+  ImageElement playerimage = new ImageElement();
+  playerimage.src = "web/sprites/mainplayer.png";
+  maincharacter.playerimage = playerimage;
+  
   heart = new GameObject(0,0,40,40);
   heart.context = context;
   secondCharacter.context = context;  
