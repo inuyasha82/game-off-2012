@@ -2748,6 +2748,7 @@ $.main = function() {
   t1 = $.context;
   $.heart.set$context(t1);
   secondCharacter.context = t1;
+  secondCharacter.set$type('player');
   t1 = $.sprites;
   $.getInterceptor(t1).add$1(t1, maincharacter);
   t1 = $.sprites;

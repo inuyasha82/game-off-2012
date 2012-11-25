@@ -14,7 +14,6 @@ GameObject heart;
 
 void main() { 
   var maincharacter = new Player(12,12, 70, 70, "red");
-  var secondCharacter = new Player(Constants.MAX_X,250, 50,50, "yellow");
   player = maincharacter;
   
   sprites = new Set();
@@ -32,16 +31,14 @@ void main() {
   
   heart = new GameObject(0,0,40,40);
   heart.context = context;
-  secondCharacter.context = context;  
 
-  sprites.add(maincharacter);
-  sprites.add(secondCharacter);
+  sprites.add(maincharacter);  
   window.requestAnimationFrame(start);
   window.requestAnimationFrame(animate);  
 }
 
 void start(num time){
-  player.draw();
+  player.draw();  
 }
 
 void animate(num time){  
