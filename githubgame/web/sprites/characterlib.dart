@@ -14,6 +14,7 @@ abstract class GameSprite{
   int directiony;
   String color;
   String _type;
+  num _id;
   
   CanvasRenderingContext2D context;
   CanvasElement canvas;
@@ -29,6 +30,7 @@ abstract class GameSprite{
     this._type = "np";
     this.directionx = 1;
     this.directiony = 1;
+    this._id = GlobalValues.idGenerator++;
   }      
 
   void move(num x, num y){
@@ -40,7 +42,7 @@ abstract class GameSprite{
   
   num get startx => this._startx;
   num get starty => this._starty;
-  
+  num get id => this._id;  
   num get centery;
   
   set type (String type) {

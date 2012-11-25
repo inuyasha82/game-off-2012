@@ -10,7 +10,7 @@ Set<GameSprite> sprites;
 int counter= 0;
 var randomnumbergenerator;
 Player player;
-GameObject heart;
+GameObject heart; 
 
 void main() { 
   var maincharacter = new Player(12,12, 70, 70, "red");
@@ -86,16 +86,17 @@ void enemyCreator(num time) {
 void myKeyDownEvent(Event event){
   if(event is KeyboardEvent){ 
     KeyboardEvent kevent = event as KeyboardEvent;    
-    query("#text").text = kevent.keyIdentifier;
-    switch(kevent.keyIdentifier){
-      case "Up":        
+    //query("#text").text = kevent.keyIdentifier;
+    //query("#text").text = kevent.keyCode.toString();
+    switch(kevent.keyCode){
+      case 38:                
         player.usermove(0,10);        
         break;
-      case "Down":        
+      case 40:        
         player.usermove(0,-10);
         break;
-      case "U+0020":        
-        Player player = new Player(81, player.centery, 20,Constants.SHOOT_SIZE, "green");
+      case 32:        
+        Player player = new Player(85, player.centery, 20,Constants.SHOOT_SIZE, "green");
         player.context = context;
         sprites.add(player);
         break;

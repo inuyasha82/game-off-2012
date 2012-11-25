@@ -3,7 +3,6 @@ library characterlib;
 import 'characterlib.dart';
 import 'dart:html';
 
-
 class GameObject extends GameSprite {
   
   ImageElement objectimage;

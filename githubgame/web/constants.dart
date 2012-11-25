@@ -14,6 +14,10 @@ class Constants {
   static const SHOOT_SIZE=3;
   
   static const ENEMY_SIZE_X=20;
-  static const ENEMY_SIZE_Y=20;
+  static const ENEMY_SIZE_Y=20;  
      
+}
+
+class GlobalValues{
+  static int idGenerator=1000;
 }
