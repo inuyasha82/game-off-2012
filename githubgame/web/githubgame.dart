@@ -13,7 +13,7 @@ Player player;
 GameObject heart;
 
 void main() { 
-  var maincharacter = new Player(10,10, 70, 70, "red");
+  var maincharacter = new Player(12,12, 70, 70, "red");
   var secondCharacter = new Player(Constants.MAX_X,250, 50,50, "yellow");
   player = maincharacter;
   
@@ -35,9 +35,13 @@ void main() {
   secondCharacter.context = context;  
 
   sprites.add(maincharacter);
-  sprites.add(secondCharacter);  
-  maincharacter.draw();  
-  window.requestAnimationFrame(animate);   
+  sprites.add(secondCharacter);
+  window.requestAnimationFrame(start);
+  window.requestAnimationFrame(animate);  
+}
+
+void start(num time){
+  player.draw();
 }
 
 void animate(num time){  
@@ -47,7 +51,8 @@ void animate(num time){
     if(!sprite.isPlayer()) {
       sprite.move(5, 0);      
       if(player.checkCollison(sprite)){
-        player.energy--;        
+        player.energy--;
+        heart.update(1);
         sprite.remove();
         player.draw();
         sprites.remove(sprite);        
@@ -58,7 +63,7 @@ void animate(num time){
         sprite.remove();
         sprites.remove(sprite);
       }      
-    } 
+    }  
     query('#text').text = "Length: ${sprites.length} Energy: ${player.energy}";
   }
   window.requestAnimationFrame(animate);  
