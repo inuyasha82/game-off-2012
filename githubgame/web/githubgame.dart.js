@@ -1496,7 +1496,7 @@ $$.GameObject = {"": ["objectimage", "currectx", "currecty", "_startx", "_starty
 }
 };
 
-$$.Maps__emitMap_anon = {"": ["visiting_3", "result_2", "box_0"],
+$$.Maps__emitMap_anon = {"": ["visiting_3", "box_0", "result_2"],
  "super": "Closure",
  call$2: function(k, v) {
   var t1, t2;
@@ -1629,7 +1629,7 @@ $$._convertDartToNative_PrepareForStructuredClone_cleanupSlots = {"": [],
 }
 };
 
-$$._convertDartToNative_PrepareForStructuredClone_walk = {"": ["readSlot_8", "findSlot_7", "writeSlot_6"],
+$$._convertDartToNative_PrepareForStructuredClone_walk = {"": ["writeSlot_8", "readSlot_7", "findSlot_6"],
  "super": "Closure",
  call$1: function(e) {
   var t1, slot, t2, length$, copy, t3, i, element, elementCopy, j, t4;
@@ -1659,32 +1659,32 @@ $$._convertDartToNative_PrepareForStructuredClone_walk = {"": ["readSlot_8", "fi
   if (typeof e === 'object' && e !== null && e.is$ArrayBufferView())
     return e;
   if (typeof e === 'object' && e !== null && e.is$Map()) {
-    slot = this.findSlot_7.call$1(e);
-    t1.copy_1 = this.readSlot_8.call$1(slot);
+    slot = this.findSlot_6.call$1(e);
+    t1.copy_1 = this.readSlot_7.call$1(slot);
     t2 = t1.copy_1;
     if (!(t2 == null))
       return t2;
     t1.copy_1 = {};
-    this.writeSlot_6.call$2(slot, t1.copy_1);
-    $.getInterceptor(e).forEach$1(e, new $._convertDartToNative_PrepareForStructuredClone_walk_anon(this, t1));
+    this.writeSlot_8.call$2(slot, t1.copy_1);
+    $.getInterceptor(e).forEach$1(e, new $._convertDartToNative_PrepareForStructuredClone_walk_anon(t1, this));
     return t1.copy_1;
   }
   if (typeof e === 'object' && e !== null && (e.constructor === Array || e.is$List())) {
     if (typeof e !== 'object' || e === null || (e.constructor !== Array || !!e.immutable$list) && !e.is$JavaScriptIndexingBehavior())
       return this.call$1$bailout(1, e);
     length$ = e.length;
-    slot = this.findSlot_7.call$1(e);
-    t2 = this.readSlot_8;
+    slot = this.findSlot_6.call$1(e);
+    t2 = this.readSlot_7;
     copy = t2.call$1(slot);
     if (!(copy == null)) {
       if (true === copy) {
         copy = new Array(length$);
-        this.writeSlot_6.call$2(slot, copy);
+        this.writeSlot_8.call$2(slot, copy);
       }
       return copy;
     }
     t1 = e instanceof Array && !!!(e.immutable$list);
-    t3 = this.writeSlot_6;
+    t3 = this.writeSlot_8;
     if (t1) {
       t3.call$2(slot, true);
       for (i = 0; i < length$; ++i) {
@@ -1787,14 +1787,14 @@ $$._convertDartToNative_PrepareForStructuredClone_walk = {"": ["readSlot_8", "fi
       if (typeof e === 'object' && e !== null && e.is$ArrayBufferView())
         return e;
       if (typeof e === 'object' && e !== null && e.is$Map()) {
-        slot = this.findSlot_7.call$1(e);
-        t1.copy_1 = this.readSlot_8.call$1(slot);
+        slot = this.findSlot_6.call$1(e);
+        t1.copy_1 = this.readSlot_7.call$1(slot);
         t2 = t1.copy_1;
         if (!(t2 == null))
           return t2;
         t1.copy_1 = {};
-        this.writeSlot_6.call$2(slot, t1.copy_1);
-        $.getInterceptor(e).forEach$1(e, new $._convertDartToNative_PrepareForStructuredClone_walk_anon(this, t1));
+        this.writeSlot_8.call$2(slot, t1.copy_1);
+        $.getInterceptor(e).forEach$1(e, new $._convertDartToNative_PrepareForStructuredClone_walk_anon(t1, this));
         return t1.copy_1;
       }
     default:
@@ -1805,18 +1805,18 @@ $$._convertDartToNative_PrepareForStructuredClone_walk = {"": ["readSlot_8", "fi
           case 1:
             state0 = 0;
             length$ = $.get$length(e);
-            slot = this.findSlot_7.call$1(e);
-            t2 = this.readSlot_8;
+            slot = this.findSlot_6.call$1(e);
+            t2 = this.readSlot_7;
             copy = t2.call$1(slot);
             if (!(copy == null)) {
               if (true === copy) {
                 copy = new Array(length$);
-                this.writeSlot_6.call$2(slot, copy);
+                this.writeSlot_8.call$2(slot, copy);
               }
               return copy;
             }
             t1 = e instanceof Array && !!!(e.immutable$list);
-            t3 = this.writeSlot_6;
+            t3 = this.writeSlot_8;
           case 2:
             if (state0 === 2 || state0 === 0 && t1)
               switch (state0) {
@@ -1872,7 +1872,7 @@ $$._convertDartToNative_PrepareForStructuredClone_walk = {"": ["readSlot_8", "fi
 }
 };
 
-$$._convertDartToNative_PrepareForStructuredClone_walk_anon = {"": ["walk_9", "box_0"],
+$$._convertDartToNative_PrepareForStructuredClone_walk_anon = {"": ["box_0", "walk_9"],
  "super": "Closure",
  call$2: function(key, value) {
   this.box_0.copy_1[key] = this.walk_9.call$1(value);
@@ -2453,11 +2453,6 @@ $._HashSetIterator$ = function(set_) {
   return t1;
 };
 
-$.defineProperty = function(obj, property, value) {
-  Object.defineProperty(obj, property,
-      {value: value, enumerable: false, writable: true, configurable: true});
-};
-
 $.lookupDynamicClass = function(hasOwnProperty, methods, className) {
   return hasOwnProperty.call(methods, className) ? methods[className] : null;
 };
@@ -2477,6 +2472,10 @@ $.buildDynamicMetadata = function(inputTable) {
   return result;
 };
 
+$.MediaElementEvents$ = function(_ptr) {
+  return new $.MediaElementEvents(_ptr);
+};
+
 $.stringSplitUnchecked = function(receiver, pattern) {
   if (typeof pattern === 'string')
     return receiver.split(pattern);
@@ -2486,9 +2485,20 @@ $.stringSplitUnchecked = function(receiver, pattern) {
     throw $.$$throw('String.split(Pattern) UNIMPLEMENTED');
 };
 
+$.getTypeNameOf = function(obj) {
+  if ($._getTypeNameOf == null)
+    $._getTypeNameOf = $.getFunctionForTypeNameOf();
+  return $._getTypeNameOf.call$1(obj);
+};
+
 $.dynamicSetMetadata = function(inputTable) {
   var t1 = $.buildDynamicMetadata(inputTable);
   $._dynamicMetadata(t1);
+};
+
+$.defineProperty = function(obj, property, value) {
+  Object.defineProperty(obj, property,
+      {value: value, enumerable: false, writable: true, configurable: true});
 };
 
 $.dynamicBind = function(obj, name$, methods, arguments$) {
@@ -2561,16 +2571,6 @@ $.typeNameInChrome = function(obj) {
   if (name$ === 'RealtimeAnalyserNode')
     return 'AnalyserNode';
   return name$;
-};
-
-$.MediaElementEvents$ = function(_ptr) {
-  return new $.MediaElementEvents(_ptr);
-};
-
-$.getTypeNameOf = function(obj) {
-  if ($._getTypeNameOf == null)
-    $._getTypeNameOf = $.getFunctionForTypeNameOf();
-  return $._getTypeNameOf.call$1(obj);
 };
 
 $.typeNameInOpera = function(obj) {
@@ -2730,9 +2730,8 @@ $.MessagePortEvents$ = function(_ptr) {
 };
 
 $.main = function() {
-  var maincharacter, secondCharacter, t1, playerimage;
+  var maincharacter, t1, playerimage;
   maincharacter = $.Player$(12, 12, 70, 70, 'red');
-  secondCharacter = $.Player$(400, 250, 50, 50, 'yellow');
   $.player = maincharacter;
   $.sprites = $.Set_Set();
   $.randomnumbergenerator = $.Random_Random(null);
@@ -2747,12 +2746,8 @@ $.main = function() {
   $.heart = $.GameObject$(0, 0, 40, 40);
   t1 = $.context;
   $.heart.set$context(t1);
-  secondCharacter.context = t1;
-  secondCharacter.set$type('player');
   t1 = $.sprites;
   $.getInterceptor(t1).add$1(t1, maincharacter);
-  t1 = $.sprites;
-  $.getInterceptor(t1).add$1(t1, secondCharacter);
   $.window().requestAnimationFrame$1($.start);
   $.window().requestAnimationFrame$1($.animate);
 };
@@ -2981,7 +2976,7 @@ $._convertDartToNative_PrepareForStructuredClone = function(value) {
   t2 = new $._convertDartToNative_PrepareForStructuredClone_readSlot(copies);
   t3 = new $._convertDartToNative_PrepareForStructuredClone_writeSlot(copies);
   t4 = new $._convertDartToNative_PrepareForStructuredClone_cleanupSlots();
-  copy = new $._convertDartToNative_PrepareForStructuredClone_walk(t2, t1, t3).call$1(value);
+  copy = new $._convertDartToNative_PrepareForStructuredClone_walk(t3, t2, t1).call$1(value);
   t4.call$0();
   return copy;
 };
@@ -3009,12 +3004,12 @@ $.ScriptProcessorNodeEvents$ = function(_ptr) {
   return new $.ScriptProcessorNodeEvents(_ptr);
 };
 
-$.HttpRequestEvents$ = function(_ptr) {
-  return new $.HttpRequestEvents(_ptr);
-};
-
 $.Random_Random = function(seed) {
   return $.CTC5;
+};
+
+$.HttpRequestEvents$ = function(_ptr) {
+  return new $.HttpRequestEvents(_ptr);
 };
 
 $.SharedWorkerContextEvents$ = function(_ptr) {
@@ -3111,7 +3106,7 @@ $.Maps__emitMap = function(m, result, visiting) {
   $.getInterceptor(visiting).add$1(visiting, m);
   $.getInterceptor(result).add$1(result, '{');
   t1.first_1 = true;
-  $.getInterceptor(m).forEach$1(m, new $.Maps__emitMap_anon(visiting, result, t1));
+  $.getInterceptor(m).forEach$1(m, new $.Maps__emitMap_anon(visiting, t1, result));
   $.getInterceptor(result).add$1(result, '}');
   $.getInterceptor(visiting).removeLast$0(visiting);
 };
@@ -3312,6 +3307,59 @@ $.LocalWindowEvents$ = function(_ptr) {
   return new $.LocalWindowEvents(_ptr);
 };
 
+$.stringReplaceAllUnchecked$bailout = function(state0, receiver, from, to) {
+  var result, length$, i;
+  if (typeof from === 'string')
+    if (from === '')
+      if ($.eqB(receiver, ''))
+        return to;
+      else {
+        result = $.StringBuffer_StringBuffer('');
+        length$ = $.get$length(receiver);
+        $.getInterceptor(result).add$1(result, to);
+        for (i = 0; $.ltB(i, length$); ++i) {
+          $.getInterceptor(result).add$1(result, $.index(receiver, i));
+          $.getInterceptor(result).add$1(result, to);
+        }
+        return $.toString(result);
+      }
+    else
+      return $.stringReplaceJS(receiver, $.regExpMakeNative($.JSSyntaxRegExp$(from.replace($.regExpMakeNative($.get$quoteRegExp(), true), "\\$&"), false, false), true), to);
+  else if (typeof from === 'object' && from !== null && !!from.is$JSSyntaxRegExp)
+    return $.stringReplaceJS(receiver, $.regExpMakeNative(from, true), to);
+  else {
+    $.checkNull(from);
+    throw $.$$throw('String.replaceAll(Pattern) UNIMPLEMENTED');
+  }
+};
+
+$.Strings__toJsStringArray$bailout = function(state0, strings) {
+  var length$, i, string, array;
+  $.checkNull(strings);
+  length$ = $.get$length(strings);
+  if ($.isJsArray(strings)) {
+    for (i = 0; $.ltB(i, length$); ++i) {
+      string = $.index(strings, i);
+      $.checkNull(string);
+      if (!(typeof string === 'string'))
+        throw $.$$throw($.ArgumentError$(string));
+    }
+    array = strings;
+  } else {
+    array = $._ListImpl_List(length$);
+    for (i = 0; $.ltB(i, length$); ++i) {
+      string = $.index(strings, i);
+      $.checkNull(string);
+      if (!(typeof string === 'string'))
+        throw $.$$throw($.ArgumentError$(string));
+      if (i >= array.length)
+        throw $.ioore(i);
+      array[i] = string;
+    }
+  }
+  return array;
+};
+
 $.animate$bailout = function(state0, env0, env1, env2, env3) {
   switch (state0) {
     case 1:
@@ -3391,59 +3439,6 @@ $.animate$bailout = function(state0, env0, env1, env2, env3) {
   }
 };
 
-$.stringReplaceAllUnchecked$bailout = function(state0, receiver, from, to) {
-  var result, length$, i;
-  if (typeof from === 'string')
-    if (from === '')
-      if ($.eqB(receiver, ''))
-        return to;
-      else {
-        result = $.StringBuffer_StringBuffer('');
-        length$ = $.get$length(receiver);
-        $.getInterceptor(result).add$1(result, to);
-        for (i = 0; $.ltB(i, length$); ++i) {
-          $.getInterceptor(result).add$1(result, $.index(receiver, i));
-          $.getInterceptor(result).add$1(result, to);
-        }
-        return $.toString(result);
-      }
-    else
-      return $.stringReplaceJS(receiver, $.regExpMakeNative($.JSSyntaxRegExp$(from.replace($.regExpMakeNative($.get$quoteRegExp(), true), "\\$&"), false, false), true), to);
-  else if (typeof from === 'object' && from !== null && !!from.is$JSSyntaxRegExp)
-    return $.stringReplaceJS(receiver, $.regExpMakeNative(from, true), to);
-  else {
-    $.checkNull(from);
-    throw $.$$throw('String.replaceAll(Pattern) UNIMPLEMENTED');
-  }
-};
-
-$.Strings__toJsStringArray$bailout = function(state0, strings) {
-  var length$, i, string, array;
-  $.checkNull(strings);
-  length$ = $.get$length(strings);
-  if ($.isJsArray(strings)) {
-    for (i = 0; $.ltB(i, length$); ++i) {
-      string = $.index(strings, i);
-      $.checkNull(string);
-      if (!(typeof string === 'string'))
-        throw $.$$throw($.ArgumentError$(string));
-    }
-    array = strings;
-  } else {
-    array = $._ListImpl_List(length$);
-    for (i = 0; $.ltB(i, length$); ++i) {
-      string = $.index(strings, i);
-      $.checkNull(string);
-      if (!(typeof string === 'string'))
-        throw $.$$throw($.ArgumentError$(string));
-      if (i >= array.length)
-        throw $.ioore(i);
-      array[i] = string;
-    }
-  }
-  return array;
-};
-
 $.myKeyDownEvent.call$1 = $.myKeyDownEvent;
 $.myKeyDownEvent.$name = "myKeyDownEvent";
 $.typeNameInOpera.call$1 = $.typeNameInOpera;
@@ -3483,23 +3478,23 @@ $.CTC = new Isolate.$isolateProperties.JSString();
 $.CTC4 = new Isolate.$isolateProperties._DeletedKeySentinel();
 $.CTC2 = new Isolate.$isolateProperties.NullPointerException(null, Isolate.$isolateProperties.CTC3);
 $.CTC5 = new Isolate.$isolateProperties._Random();
+$.Constants_SHOOT_SIZE = 3;
+$.Constants_ENEMY_SIZE_X = 20;
+$.Constants_ENEMY_SIZE_Y = 20;
 $.Primitives_hashCodeSeed = 0;
 $.Primitives_DOLLAR_CHAR_VALUE = 36;
 $._getTypeNameOf = null;
 $._HashMapImpl__DELETED_KEY = Isolate.$isolateProperties.CTC4;
 $._HashMapImpl__INITIAL_CAPACITY = 8;
-$.Constants_MAX_X = 400;
-$.Constants_MAX_Y = 400;
 $.GlobalValues_idGenerator = 1000;
-$.Constants_SHOOT_SIZE = 3;
-$.Constants_ENEMY_SIZE_X = 20;
-$.Constants_ENEMY_SIZE_Y = 20;
 $.context = null;
 $.sprites = null;
 $.counter = 0;
 $.randomnumbergenerator = null;
 $.player = null;
 $.heart = null;
+$.Constants_MAX_X = 400;
+$.Constants_MAX_Y = 400;
 Isolate.$lazy($, 'quoteRegExp', 'quoteRegExp', 'get$quoteRegExp', function() {
   return $.JSSyntaxRegExp$('[-[\\]{}()*+?.,\\\\^$|#\\s]', false, false);
 });

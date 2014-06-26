@@ -10,7 +10,7 @@ Set<GameSprite> sprites;
 int counter= 0;
 var randomnumbergenerator;
 Player player;
-GameObject heart; 
+GameObject heart;
 
 void main() { 
   var maincharacter = new Player(12,12, 70, 70, "red");
@@ -42,8 +42,7 @@ void start(num time){
 }
 
 void animate(num time){  
-  enemyCreator(time);
-  //context.clearRect(0,0,Constants.SCREEN_SIZE_X,Constants.SCREEN_SIZE_Y);  
+  enemyCreator(time); 
   for(final sprite in sprites){
     if(!sprite.isPlayer()) {
       sprite.move(5, 0);      

@@ -20,4 +20,5 @@ class Constants {
 
 class GlobalValues{
   static int idGenerator=1000;
+  static List<List<int>> playground;
 }
