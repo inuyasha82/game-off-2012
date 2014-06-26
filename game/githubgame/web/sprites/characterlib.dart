@@ -10,10 +10,11 @@ abstract class GameSprite{
   num height;
   num posx;
   num posy;
-  num directionx;
-  num directiony;
+  int directionx;
+  int directiony;
   String color;
   String _type;
+  num _id;
   
   CanvasRenderingContext2D context;
   CanvasElement canvas;
@@ -29,16 +30,19 @@ abstract class GameSprite{
     this._type = "np";
     this.directionx = 1;
     this.directiony = 1;
+    this._id = GlobalValues.idGenerator++;
   }      
 
   void move(num x, num y){
+    this.remove();
     this.posx +=(x*directionx);
     this.posy +=(y*directiony);
+    this.draw();
   }
   
   num get startx => this._startx;
   num get starty => this._starty;
-  
+  num get id => this._id;  
   num get centery;
   
   set type (String type) {
@@ -51,6 +55,7 @@ abstract class GameSprite{
   }    
   
   void draw();
+  void remove();
   
   void usermove(num x, num y);
        
